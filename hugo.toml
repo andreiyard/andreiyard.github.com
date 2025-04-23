@@ -1,0 +1,4 @@
+baseURL = 'https://andreiyard.github.com'
+languageCode = 'en-us'
+title = 'Andrei Naidenov'
+theme = 'ananke'
