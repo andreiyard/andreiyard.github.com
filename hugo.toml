@@ -91,7 +91,7 @@ tocopen = false
   hiddenInSingle = true
 
   [params.editPost]
-  URL = "https://github.com/andreiyard/andreiyard.github.com/blob/main/content/posts"
+  URL = "https://github.com/andreiyard/andreiyard.github.com/blob/main/content"
   Text = "Suggest Changes"
   appendFilePath = true
 
