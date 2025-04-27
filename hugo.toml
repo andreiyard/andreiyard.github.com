@@ -28,7 +28,7 @@ ShowReadingTime = true
 ShowShareButtons = true
 ShowPostNavLinks = true
 ShowBreadCrumbs = true
-ShowCodeCopyButtons = false
+ShowCodeCopyButtons = true
 ShowWordCount = true
 ShowRssButtonInSectionTermList = true
 UseHugoToc = true
@@ -70,20 +70,17 @@ tocopen = false
     url = "tags"
 
   [params.homeInfoParams]
-  Title = "Hi there 👋"
-  Content = "Welcome to my blog"
-
+  Title = "🛠️ Andrei Naidenov | Engineering Blog"
+  Content = "👋 Hi! I'm an engineer with a focus on network automation, cloud architecture, and infrastructure reliability.   \nThis blog covers practical engineering topics: network design, automation with Python and Ansible, DevOps tooling, SRE methodologies. Guides, technical breakdowns, and my thoughts on technical topics."
   [[params.socialIcons]]
-  name = "x"
-  url = "https://x.com/"
-
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/andrei-naidenov"
   [[params.socialIcons]]
-  name = "stackoverflow"
-  url = "https://stackoverflow.com"
-
+  name = "email"
+  url = "mailto:andrei.naidenov.work@gmail.com"
   [[params.socialIcons]]
   name = "github"
-  url = "https://github.com/"
+  url = "https://github.com/andreiyard"
 
   [params.cover]
   hidden = true
@@ -106,22 +103,22 @@ tocopen = false
   keys = [ "title", "permalink", "summary", "content" ]
 
 [[menu.main]]
-identifier = "categories"
-name = "categories"
-url = "/categories/"
-weight = 10
+identifier = "Search"
+name = "Search"
+url = "/search/"
+weight = 5
 
 [[menu.main]]
-identifier = "tags"
-name = "tags"
+identifier = "Tags"
+name = "Tags"
 url = "/tags/"
 weight = 20
 
-[[menu.main]]
-identifier = "example"
-name = "example.org"
-url = "https://example.org"
-weight = 30
+# [[menu.main]]
+# identifier = "example"
+# name = "example.org"
+# url = "https://example.org"
+# weight = 30
 
 [markup.highlight]
 noClasses = false
@@ -129,3 +126,6 @@ noClasses = false
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
+
+[outputs]
+  home = [ "HTML", "RSS", "JSON" ]
