@@ -9,7 +9,7 @@ tags: ["first", "hugo"]
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
-draft: false
+draft: true
 hidemeta: false
 comments: false
 description: "Here I test hugo features"
