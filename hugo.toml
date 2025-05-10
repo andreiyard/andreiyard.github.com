@@ -83,9 +83,9 @@ tocopen = false
   url = "https://github.com/andreiyard"
 
   [params.cover]
-  hidden = true
-  hiddenInList = true
-  hiddenInSingle = true
+  hidden = false
+  hiddenInList = false
+  hiddenInSingle = false
 
   [params.editPost]
   URL = "https://github.com/andreiyard/andreiyard.github.com/blob/main/content"
