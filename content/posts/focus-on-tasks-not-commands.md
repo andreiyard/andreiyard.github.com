@@ -1,7 +1,7 @@
 ---
 title: "Problem with lists of commands for learning Linux"
 date: '2025-04-29T00:39:59+02:00'
-tags: ["linux", "learning"]
+tags: ["Linux", "Learning"]
 showToc: true
 TocOpen: false
 draft: false
@@ -20,10 +20,6 @@ UseHugoToc: true
 cover:
     image: images/bash_logo.png
     hiddenInList: true
-# editPost:
-#     URL: "https://github.com/<path_to_repo>/content"
-#     Text: "Suggest Changes" # edit text
-#     appendFilePath: true # to append file path to Edit link
 ---
 
 One evening while scrolling through LinkedIn, I noticed an interesting trend.  
