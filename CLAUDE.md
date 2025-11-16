@@ -11,11 +11,32 @@ This is a personal engineering blog built with Hugo static site generator, using
 **Hugo Version (CI)**: 0.146.7 extended
 **Deployment**: GitHub Actions → GitHub Pages
 
+## Multilingual Support
+
+The site supports three languages:
+- **English (default)** - `content/en/`
+- **Russian** - `content/ru/`
+- **Serbian (Latin script)** - `content/sr/`
+
+Language configuration is in `hugo.toml` under `[languages]` section. Each language has its own:
+- Content directory (`contentDir`)
+- Translated home page intro (`params.homeInfoParams`)
+- Translated menu items (Search, Tags)
+
+Serbian uses Latin alphabet (latinica) throughout the site. Custom i18n file at `i18n/sr.yaml`.
+
 ## Development Commands
 
 ### Creating New Posts
 ```bash
-hugo new --kind post content/posts/your-post-name.md
+# English (default)
+hugo new --kind post content/en/posts/your-post-name.md
+
+# Russian
+hugo new --kind post content/ru/posts/your-post-name.md
+
+# Serbian
+hugo new --kind post content/sr/posts/your-post-name.md
 ```
 This uses the post archetype template from `archetypes/post.md` which includes all necessary front matter fields.
 
@@ -49,7 +70,7 @@ Posts use extensive front matter configuration (see `archetypes/post.md`):
 - `cover.image` - Post cover image (hidden in list by default with `hiddenInList: true`)
 - `ShowReadingTime`, `ShowBreadCrumbs`, `ShowPostNavLinks`, `ShowWordCount` - Display options
 
-All posts go in `content/posts/` directory.
+Posts are organized by language in their respective directories (`content/en/posts/`, `content/ru/posts/`, `content/sr/posts/`).
 
 ### Site Configuration
 Main configuration in `hugo.toml`:
@@ -73,8 +94,11 @@ Located at `.github/workflows/hugo.yaml`:
 
 ## Key Directories
 
-- `content/posts/` - Blog post markdown files
+- `content/en/` - English content
+- `content/ru/` - Russian content
+- `content/sr/` - Serbian content (Latin script)
 - `archetypes/` - Content templates (especially `post.md`)
+- `i18n/` - Custom i18n translations (sr.yaml for Serbian)
 - `static/` - Static assets (images, etc.)
 - `themes/PaperMod/` - Theme submodule (do not edit directly)
 - `public/` - Build output (git-ignored)

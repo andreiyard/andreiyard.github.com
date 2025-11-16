@@ -1,0 +1,39 @@
+- id: prev_page
+  translation: "Prethodna"
+
+- id: next_page
+  translation: "Sledeća"
+
+- id: read_time
+  translation:
+    zero: "0 minuta"
+    one: "1 minut"
+    few: "{{ .Count }} minuta"
+    many: "{{ .Count }} minuta"
+    other: "{{ .Count }} minuta"
+
+- id: words
+  translation:
+    zero: "0 reči"
+    one: "1 reč"
+    few: "{{ .Count }} reči"
+    many: "{{ .Count }} reči"
+    other: "{{ .Count }} reči"
+
+- id: toc
+  translation: "Sadržaj"
+
+- id: translations
+  translation: "Prevodi"
+
+- id: home
+  translation: "Početna"
+
+- id: edit_post
+  translation: "Uredi"
+
+- id: code_copy
+  translation: "kopiraj"
+
+- id: code_copied
+  translation: "kopirano!"

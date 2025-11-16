@@ -1,5 +1,5 @@
 baseURL = 'https://andreiyard.github.com'
-languageCode = 'en-us'
+defaultContentLanguage = 'en'
 title = 'Andrei Naidenov'
 theme = 'PaperMod'
 
@@ -69,9 +69,6 @@ tocopen = false
     name = "Tags"
     url = "tags"
 
-  [params.homeInfoParams]
-  Title = "🛠️ Andrei Naidenov | Engineering Blog"
-  Content = "👋 Hi! I'm an engineer with a focus on network automation, cloud architecture, and infrastructure reliability.   \nThis blog covers practical engineering topics: network design, automation with Python and Ansible, DevOps tooling, SRE methodologies. Guides, technical breakdowns, and my thoughts on technical topics."
   [[params.socialIcons]]
   name = "linkedin"
   url = "https://www.linkedin.com/in/andrei-naidenov"
@@ -102,18 +99,6 @@ tocopen = false
   limit = 10
   keys = [ "title", "permalink", "summary", "content" ]
 
-[[menu.main]]
-identifier = "Search"
-name = "Search"
-url = "/search/"
-weight = 5
-
-[[menu.main]]
-identifier = "Tags"
-name = "Tags"
-url = "/tags/"
-weight = 20
-
 # [[menu.main]]
 # identifier = "example"
 # name = "example.org"
@@ -129,3 +114,70 @@ noClasses = false
 
 [outputs]
   home = [ "HTML", "RSS", "JSON" ]
+
+[languages]
+  [languages.en]
+    contentDir = 'content/en'
+    languageCode = 'en-us'
+    languageName = 'English'
+    weight = 1
+
+    [languages.en.params.homeInfoParams]
+      Title = "🛠️ Andrei Naidenov | Engineering Blog"
+      Content = "👋 Hi! I'm an engineer with a focus on network automation, cloud architecture, and infrastructure reliability.   \nThis blog covers practical engineering topics: network design, automation with Python and Ansible, DevOps tooling, SRE methodologies. Guides, technical breakdowns, and my thoughts on technical topics."
+
+    [[languages.en.menu.main]]
+      identifier = "Search"
+      name = "Search"
+      url = "/search/"
+      weight = 5
+
+    [[languages.en.menu.main]]
+      identifier = "Tags"
+      name = "Tags"
+      url = "/tags/"
+      weight = 20
+
+  [languages.ru]
+    contentDir = 'content/ru'
+    languageCode = 'ru'
+    languageName = 'Русский'
+    weight = 2
+
+    [languages.ru.params.homeInfoParams]
+      Title = "🛠️ Андрей Найденов | Инженерный блог"
+      Content = "👋 Привет! Я инженер, специализирующийся на автоматизации сетей, облачной архитектуре и надёжности инфраструктуры.   \nЭтот блог посвящён практическим инженерным темам: проектирование сетей, автоматизация с Python и Ansible, DevOps-инструменты, методологии SRE. Здесь вы найдёте руководства, технические разборы и мои размышления о современных технологиях."
+
+    [[languages.ru.menu.main]]
+      identifier = "Search"
+      name = "Поиск"
+      url = "/search/"
+      weight = 5
+
+    [[languages.ru.menu.main]]
+      identifier = "Tags"
+      name = "Теги"
+      url = "/tags/"
+      weight = 20
+
+  [languages.sr]
+    contentDir = 'content/sr'
+    languageCode = 'sr'
+    languageName = 'Srpski'
+    weight = 3
+
+    [languages.sr.params.homeInfoParams]
+      Title = "🛠️ Andrej Najdenov | Inženjerski blog"
+      Content = "👋 Zdravo! Ja sam inženjer fokusiran na automatizaciju mreža, oblačnu arhitekturu i pouzdanost infrastrukture.   \nOvaj blog pokriva praktične inženjerske teme: dizajn mreža, automatizacija sa Python i Ansible, DevOps alati, SRE metodologije. Vodiči, tehnički detalji i razmišljanja o tehničkim temama."
+
+    [[languages.sr.menu.main]]
+      identifier = "Search"
+      name = "Pretraga"
+      url = "/search/"
+      weight = 5
+
+    [[languages.sr.menu.main]]
+      identifier = "Tags"
+      name = "Oznake"
+      url = "/tags/"
+      weight = 20
