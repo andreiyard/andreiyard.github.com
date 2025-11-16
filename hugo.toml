@@ -10,6 +10,11 @@ buildExpired = false
 
 pygmentsUseClasses = true
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
 [minify]
 disableXML = true
 minifyOutput = true
@@ -138,6 +143,9 @@ noClasses = false
       url = "/tags/"
       weight = 20
 
+    [languages.en.outputs]
+      home = [ "HTML", "RSS", "JSON" ]
+
   [languages.ru]
     contentDir = 'content/ru'
     languageCode = 'ru'
@@ -160,6 +168,9 @@ noClasses = false
       url = "/tags/"
       weight = 20
 
+    [languages.ru.outputs]
+      home = [ "HTML", "RSS", "JSON" ]
+
   [languages.sr]
     contentDir = 'content/sr'
     languageCode = 'sr'
@@ -181,3 +192,6 @@ noClasses = false
       name = "Oznake"
       url = "/tags/"
       weight = 20
+
+    [languages.sr.outputs]
+      home = [ "HTML", "RSS", "JSON" ]

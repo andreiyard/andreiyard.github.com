@@ -62,22 +62,96 @@ git submodule update --init --recursive
 
 ## Content Structure
 
+### Post Organization
+Posts are stored as individual markdown files (not page bundles):
+- `content/en/posts/article-name.md`
+- `content/ru/posts/article-name.md`
+- `content/sr/posts/article-name.md`
+
+Posts are organized by language in their respective directories.
+
+### Images and Static Assets
+Images are stored once in `/static/posts/` and shared across all language versions:
+- Post images: `/static/posts/article-slug/images/`
+- Image references in markdown use absolute paths from root: `/posts/article-slug/images/filename.jpg`
+- Benefits: No duplication, easier maintenance, single source of truth for media
+
+Example in front matter:
+```yaml
+cover:
+    image: "/posts/homelab-part1-minipc-proxmox/images/cover.jpg"
+```
+
+In markdown body:
+```markdown
+{{< figure src="/posts/article-slug/images/photo.jpg" alt="Description" caption="Caption text" >}}
+```
+
 ### Post Front Matter
 Posts use extensive front matter configuration (see `archetypes/post.md`):
 - `title`, `date`, `summary`, `tags` - Basic metadata
 - `showToc`, `TocOpen` - Table of contents settings
 - `draft` - Set to false to publish
-- `cover.image` - Post cover image (hidden in list by default with `hiddenInList: true`)
+- `cover.image` - Post cover image (use absolute path: `/posts/article-slug/images/cover.jpg`)
 - `ShowReadingTime`, `ShowBreadCrumbs`, `ShowPostNavLinks`, `ShowWordCount` - Display options
-
-Posts are organized by language in their respective directories (`content/en/posts/`, `content/ru/posts/`, `content/sr/posts/`).
 
 ### Site Configuration
 Main configuration in `hugo.toml`:
 - Site parameters, theme settings, menu configuration
-- Search enabled with Fuse.js (outputs JSON index)
+- Search enabled with Fuse.js for all three languages
 - Edit post links point to GitHub repository
 - Social icons: LinkedIn, Email, GitHub
+- Custom taxonomies: `tags`, `categories`, `series` (for organizing article series)
+
+### Search Configuration
+Search is enabled for all three languages with dedicated search pages:
+- English: `/en/search/`
+- Russian: `/ru/search/`
+- Serbian: `/sr/search/`
+
+Each language outputs its own JSON index for Fuse.js search functionality.
+Configuration in `hugo.toml` includes per-language outputs:
+```toml
+[languages.en.outputs]
+  home = [ "HTML", "RSS", "JSON" ]
+[languages.ru.outputs]
+  home = [ "HTML", "RSS", "JSON" ]
+[languages.sr.outputs]
+  home = [ "HTML", "RSS", "JSON" ]
+```
+
+Search configuration (applies to all languages):
+- Case-insensitive fuzzy search
+- Searches: title, permalink, summary, content
+- Configurable via `[params.fuseOpts]` in hugo.toml
+
+### RSS Feeds
+RSS is automatically generated for all languages:
+- English: `/en/index.xml`
+- Russian: `/ru/index.xml`
+- Serbian: `/sr/index.xml`
+
+### Organizing Article Series
+For multi-part article series, use the `series` front matter field:
+```yaml
+---
+title: "Homelab Part 1: Setup"
+tags: ["homelab", "proxmox"]
+series: ["homelab-setup"]
+---
+```
+
+This creates a dedicated page at `/series/homelab-setup/` listing all articles in the series.
+
+### Translation Workflow
+When creating multilingual content:
+1. Write original version in preferred language
+2. Translate to other languages (maintain consistent structure)
+3. Use same slug for all language versions (`article-name.md`)
+4. Reference shared images from `/static/posts/` using absolute paths
+5. Keep `series` and `tags` identical across translations
+6. Translate: `title`, `summary`, image `alt` and `caption` text
+7. All versions share the same images (no duplication needed)
 
 ## Deployment Architecture
 
@@ -94,14 +168,16 @@ Located at `.github/workflows/hugo.yaml`:
 
 ## Key Directories
 
-- `content/en/` - English content
-- `content/ru/` - Russian content
-- `content/sr/` - Serbian content (Latin script)
+- `content/en/` - English content (posts, search page)
+- `content/ru/` - Russian content (posts, search page)
+- `content/sr/` - Serbian content (Latin script, posts, search page)
 - `archetypes/` - Content templates (especially `post.md`)
 - `i18n/` - Custom i18n translations (sr.yaml for Serbian)
-- `static/` - Static assets (images, etc.)
+- `static/posts/` - Centralized images shared across all languages
+- `static/` - Other static assets
 - `themes/PaperMod/` - Theme submodule (do not edit directly)
 - `public/` - Build output (git-ignored)
+- `.notes/` - Project notes and session documentation (git-ignored, not committed)
 
 ## Theme Customization
 

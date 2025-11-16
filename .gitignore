@@ -11,3 +11,6 @@ dist
 tmp
 
 .hugo_build.lock
+
+# Project notes and drafts (not committed)
+.notes/
