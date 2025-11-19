@@ -1,6 +1,6 @@
 ---
 title: "Homelab: Deo 1 – Mini PC i Proxmox instalacija"
-date: '2025-11-16T01:37:30+00:00'
+date: '2025-11-19T12:00:00+00:00'
 summary: "Kupovina mini računara u Srbiji i instalacija Proxmox VE sa testiranjem Intel AMT/vPro"
 tags: ["homelab", "proxmox", "virtualization", "serbia", "mini-pc", "intel-amt", "vpro"]
 series: ["homelab-setup"]

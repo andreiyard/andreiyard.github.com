@@ -1,6 +1,6 @@
 ---
 title: "Homelab Part 1: Mini PC and Proxmox Installation"
-date: '2025-11-16T01:37:30+00:00'
+date: '2025-11-19T12:00:00+00:00'
 summary: "Buying a mini PC in Serbia and installing Proxmox VE with Intel AMT/vPro testing"
 tags: ["homelab", "proxmox", "virtualization", "serbia", "mini-pc", "intel-amt", "vpro"]
 series: ["homelab-setup"]
