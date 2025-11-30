@@ -25,6 +25,36 @@ Language configuration is in `hugo.toml` under `[languages]` section. Each langu
 
 Serbian uses Latin alphabet (latinica) throughout the site. Custom i18n file at `i18n/sr.yaml`.
 
+### URL Structure for Multilingual Content
+
+**IMPORTANT**: Hugo generates different URL paths for the default language vs other languages:
+
+- **English (default language)**: URLs are at the **root level WITHOUT `/en/` prefix**
+  - Posts: `/posts/article-name/`
+  - Series: `/series/series-name/`
+  - Tags: `/tags/tag-name/`
+  - Search: `/search/`
+
+- **Russian**: URLs include `/ru/` prefix
+  - Posts: `/ru/posts/article-name/`
+  - Series: `/ru/series/series-name/`
+  - Tags: `/ru/tags/tag-name/`
+  - Search: `/ru/search/`
+
+- **Serbian**: URLs include `/sr/` prefix
+  - Posts: `/sr/posts/article-name/`
+  - Series: `/sr/series/series-name/`
+  - Tags: `/sr/tags/tag-name/`
+  - Search: `/sr/search/`
+
+**When writing internal links in content:**
+- ✅ English articles: Use `/series/homelab-setup/` (NO /en/ prefix)
+- ✅ Russian articles: Use `/ru/series/homelab-setup/` (WITH /ru/ prefix)
+- ✅ Serbian articles: Use `/sr/series/homelab-setup/` (WITH /sr/ prefix)
+- ❌ **NEVER** use `/en/` prefix - it will result in 404 errors
+
+This behavior is controlled by `defaultContentLanguage = 'en'` in `hugo.toml`. To change this and put English under `/en/`, you would need to set `defaultContentLanguageInSubdir = true`, but this would break existing URLs.
+
 ## Development Commands
 
 ### Creating New Posts
@@ -187,3 +217,24 @@ The site uses PaperMod theme with custom configuration in `hugo.toml`:
 - Code copy buttons, reading time, word count all enabled
 - Social icons configured for LinkedIn, Email, GitHub
 - use brief commit messages without mentioning claude
+
+## Active Article Series
+
+### Homelab Series
+- **Series slug:** `homelab-setup`
+- **Status:** Part 1 published, Part 2 draft (awaiting screenshots)
+- **Planning doc:** `.notes/homelab-series.md`
+- **Topics:** Mini PC setup, Proxmox, services, remote access, VyOS networking
+
+### 3D Printing Series
+- **Series slug:** `3d-printing`
+- **Status:** Part 1 draft in progress
+- **Planning doc:** `.notes/3d-printing-series.md`
+- **Screenshots checklist:** `.notes/print3d-part1-screenshots.md`
+- **Hardware:** Creality Hi printer
+- **Topics:** Printer selection, first prints, slicer comparison, multi-color printing, PETG experience
+- **Planned articles:**
+  1. `print3d-part1-creality-hi` - Printer selection and first prints (draft)
+  2. `print3d-part2-calibration-slicers` - Calibration fix and slicer comparison (planned)
+  3. `print3d-part3-multicolor` - Multi-color printing with pause/swap (planned)
+  4. `print3d-part4-labrax-petg` - Labrax project with PETG (planned)
